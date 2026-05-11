@@ -1,9 +1,9 @@
-import { useConnections } from '@trustwallet/connect-react'
+import { useConnection } from '@trustwallet/connect-react'
 import { ActionCard } from '../../components/ActionCard'
 import { useSignMessage } from '@trustwallet/connect-bip122-react'
 
 export function BIP122SignMessage() {
-	const { isConnected } = useConnections({ namespaceId: 'bip122' })
+	const { isConnected } = useConnection({ namespaceId: 'bip122' })
 
 	const { mutate: sign, data: signature, isPending, isSuccess, isError, error } = useSignMessage()
 
