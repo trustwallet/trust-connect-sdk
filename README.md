@@ -561,4 +561,4 @@ pnpm run dev:all
 
 Copyright 2026 Trust Wallet
 
-Licensed under the Apache License, Version 2.0. See the [LICENSE](./LICENSE) file for details.
+Licensed under the Apache License, Version 2.0. See the [LICENSE](./LICENSE.md) file for details.
