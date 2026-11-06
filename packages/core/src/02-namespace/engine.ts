@@ -1,10 +1,10 @@
-import { RegistryBase } from '../04-registry/base'
-import { WalletAdapterBase } from '../05-wallet/base'
-import { NamespaceBase } from './base'
-import { NamespaceAddress, NamespaceConnection, NamespaceId, NamespaceWallet } from '../types'
-import { Base64SVG } from '../types/utils'
-import { ConnectedChain, RpcUrls } from '../types/namespace'
-import { ConnectionInProgressError, WalletAlreadyConnectedError, MissingChainError } from '../errors'
+import type { RegistryBase } from '../04-registry/base.js'
+import type { WalletAdapterBase } from '../05-wallet/base.js'
+import { NamespaceBase } from './base.js'
+import type { NamespaceAddress, NamespaceConnection, NamespaceId, NamespaceWallet } from '../types/index.js'
+import type { Base64SVG } from '../types/utils/index.js'
+import type { ConnectedChain, RpcUrls } from '../types/namespace/index.js'
+import { ConnectionInProgressError, WalletAlreadyConnectedError, MissingChainError } from '../errors/index.js'
 
 export class NamespaceEngine extends NamespaceBase {
 	id: NamespaceId

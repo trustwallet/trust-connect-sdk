@@ -1,10 +1,10 @@
-import { Storage } from '../utils/storage'
-import type { RegistryBase } from '../04-registry/base'
-import type { WalletAdapterBase } from '../05-wallet/base'
-import { Emitter } from '../utils/emitter'
-import { NamespaceConnection, NamespaceId } from '../types'
-import { Base64SVG } from '../types/utils'
-import { RpcUrls } from '../types/namespace'
+import { Storage } from '../utils/storage.js'
+import type { RegistryBase } from '../04-registry/base.js'
+import type { WalletAdapterBase } from '../05-wallet/base.js'
+import { Emitter } from '../utils/emitter.js'
+import type { NamespaceConnection, NamespaceId } from '../types/index.js'
+import type { Base64SVG } from '../types/utils/index.js'
+import type { RpcUrls } from '../types/namespace/index.js'
 
 const STORAGE_KEY_PREFIX = 'trust-connect.namespace'
 

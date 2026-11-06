@@ -4,9 +4,9 @@
  * Based on: https://docs.walletconnect.network/wallet-sdk/chain-support/evm
  */
 
-import type { SignClientInstance } from '../../types'
+import type { SignClientInstance } from '../../types.js'
 import type { SessionTypes } from '@walletconnect/types'
-import type { WalletConnectEIP155Request, WalletConnectEIP155Response, HexString } from '../../rpc-types'
+import type { WalletConnectEIP155Request, WalletConnectEIP155Response, HexString } from '../../rpc-types/index.js'
 import { InvalidChainRefError, AccountNotFoundError, ChainNotSupportedError } from '@trustwallet/connect-core'
 
 export type EIP155InterceptorContext = {

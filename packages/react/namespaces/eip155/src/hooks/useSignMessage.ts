@@ -4,8 +4,8 @@ import { signMessage } from 'viem/actions'
 import { useCallback } from 'react'
 import { EIP155_SCOPE } from '@trustwallet/connect-eip155-core'
 import { NoWalletConnectedError, useConnection } from '@trustwallet/connect-headless'
-import { createEIP155Transport } from '../transport'
-import { SignMessageResult, UseSignMessageOptions } from '../types'
+import { createEIP155Transport } from '../transport.js'
+import type { SignMessageResult, UseSignMessageOptions } from '../types.js'
 
 export function useSignMessage(options: UseSignMessageOptions = {}) {
 	const { connection } = useConnection({ namespaceId: EIP155_SCOPE.ID })

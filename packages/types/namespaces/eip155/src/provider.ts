@@ -1,37 +1,37 @@
-import type { EIP155ChainId } from './chain'
-import type { PersonalSignMethod, PersonalSignParams, PersonalSignResponse } from './methods/personal_sign'
+import type { EIP155ChainId } from './chain.js'
+import type { PersonalSignMethod, PersonalSignParams, PersonalSignResponse } from './methods/personal_sign/index.js'
 import type {
 	EthSignTypedDataMethod,
 	EthSignTypedDataParams,
 	EthSignTypedDataResponse,
-} from './methods/eth_signTypedData'
+} from './methods/eth_signTypedData/index.js'
 import type {
 	EthRequestAccountsMethod,
 	EthRequestAccountsParams,
 	EthRequestAccountsResponse,
-} from './methods/eth_requestAccounts'
-import type { EthAccountsMethod, EthAccountsParams, EthAccountsResponse } from './methods/eth_accounts'
-import type { EthChainIdMethod, EthChainIdParams, EthChainIdResponse } from './methods/eth_chainId'
+} from './methods/eth_requestAccounts/index.js'
+import type { EthAccountsMethod, EthAccountsParams, EthAccountsResponse } from './methods/eth_accounts/index.js'
+import type { EthChainIdMethod, EthChainIdParams, EthChainIdResponse } from './methods/eth_chainId/index.js'
 import type {
 	WalletSwitchEthereumChainMethod,
 	WalletSwitchEthereumChainParams,
 	WalletSwitchEthereumChainResponse,
-} from './methods/wallet_switchEthereumChain'
+} from './methods/wallet_switchEthereumChain/index.js'
 import type {
 	EthSendTransactionMethod,
 	EthSendTransactionParams,
 	EthSendTransactionResponse,
-} from './methods/eth_sendTransaction'
+} from './methods/eth_sendTransaction/index.js'
 import type {
 	EthSignTransactionMethod,
 	EthSignTransactionParams,
 	EthSignTransactionResponse,
-} from './methods/eth_signTransaction'
+} from './methods/eth_signTransaction/index.js'
 import type {
 	EthSendRawTransactionMethod,
 	EthSendRawTransactionParams,
 	EthSendRawTransactionResponse,
-} from './methods/eth_sendRawTransaction'
+} from './methods/eth_sendRawTransaction/index.js'
 
 export type EIP155Provider = {
 	request<P extends EIP155RequestParams<EIP155RequestArguments>>(args: P): Promise<InferEIP155Response<P>>

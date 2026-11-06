@@ -1,5 +1,5 @@
-import { BackIcon } from '../../icons/BackIcon'
-import { CloseIcon } from '../../icons/CloseIcon'
+import { BackIcon } from '../../icons/BackIcon.js'
+import { CloseIcon } from '../../icons/CloseIcon.js'
 import styles from './styles.module.css'
 
 interface ModalHeaderProps {

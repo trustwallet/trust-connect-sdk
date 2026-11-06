@@ -1,9 +1,9 @@
-import { NamespaceEngine } from '../02-namespace/engine'
-import { ServiceBase } from '../03-services/base'
-import { Connections, NamespaceConnection, NamespaceId, Wallet } from '../types'
-import { Emitter } from '../utils/emitter'
-import { stringToWalletId } from '../utils/stringToWalletId'
-import { NamespaceNotFoundError } from '../errors'
+import type { NamespaceEngine } from '../02-namespace/engine.js'
+import type { ServiceBase } from '../03-services/base.js'
+import type { Connections, NamespaceConnection, NamespaceId, Wallet } from '../types/index.js'
+import { Emitter } from '../utils/emitter.js'
+import { stringToWalletId } from '../utils/stringToWalletId.js'
+import { NamespaceNotFoundError } from '../errors/index.js'
 
 export abstract class TrustConnectBase {
 	abstract wallets: Wallet[]

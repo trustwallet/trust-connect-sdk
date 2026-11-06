@@ -1,7 +1,7 @@
 import { useMemo, useSyncExternalStore } from 'react'
 import type { Connections } from '@trustwallet/connect-core'
 import { NamespaceNotFoundError } from '@trustwallet/connect-core'
-import { useTrustConnectContext } from '../context'
+import { useTrustConnectContext } from '../context.js'
 
 type UseConnectionReturnType<T extends keyof Connections> = {
 	connection: NonNullable<Connections[T]>

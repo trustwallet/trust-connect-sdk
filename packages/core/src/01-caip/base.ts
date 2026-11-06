@@ -1,4 +1,4 @@
-import { Storage } from '../utils/storage'
+import { Storage } from '../utils/storage.js'
 
 const STORAGE_KEY_PREFIX = 'trust-connect.caip'
 

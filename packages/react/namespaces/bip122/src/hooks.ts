@@ -1,12 +1,12 @@
 import { useMutation } from '@tanstack/react-query'
 import { buildChainId, useTrustConnectContext } from '@trustwallet/connect-headless'
-import { BIP122_SCOPE, BIP122ChainId } from '@trustwallet/connect-bip122-core'
+import { BIP122_SCOPE, type BIP122ChainId } from '@trustwallet/connect-bip122-core'
 import {
 	NoWalletConnectedError,
 	WalletNotFoundInConnectionError,
 	AccountNotFoundError,
 } from '@trustwallet/connect-headless'
-import {
+import type {
 	SignMessageMutationParams,
 	SignMessageMutationResult,
 	SignPsbtMutationParams,
@@ -16,7 +16,7 @@ import {
 	UseSignMessageOptions,
 	UseSignPsbtOptions,
 	UseSendTransferOptions,
-} from './types'
+} from './types.js'
 import {
 	stringToBytes,
 	bytesToHex,

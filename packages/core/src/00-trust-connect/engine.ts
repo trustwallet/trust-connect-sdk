@@ -1,8 +1,8 @@
-import { WalletAdapterBase } from '../05-wallet/base'
-import { TrustConnectBase } from './base'
-import { ServiceBase } from '../03-services/base'
-import { NamespaceEngine } from '../02-namespace/engine'
-import {
+import type { WalletAdapterBase } from '../05-wallet/base.js'
+import { TrustConnectBase } from './base.js'
+import type { ServiceBase } from '../03-services/base.js'
+import type { NamespaceEngine } from '../02-namespace/engine.js'
+import type {
 	CaipWallet,
 	Cast,
 	Connections,
@@ -12,10 +12,10 @@ import {
 	Scope,
 	TrustConnectOptions,
 	Wallet,
-} from '../types'
-import { CaipController } from '../01-caip/controller'
-import { stringToWalletId } from '../utils/stringToWalletId'
-import { MissingNamespaceIdError, NamespaceNotFoundError } from '../errors'
+} from '../types/index.js'
+import { CaipController } from '../01-caip/controller.js'
+import { stringToWalletId } from '../utils/stringToWalletId.js'
+import { MissingNamespaceIdError, NamespaceNotFoundError } from '../errors/index.js'
 
 export class TrustConnect<T extends readonly NamespaceConstructor[] = NamespaceConstructor[]> extends TrustConnectBase {
 	wallets: Wallet[] = []

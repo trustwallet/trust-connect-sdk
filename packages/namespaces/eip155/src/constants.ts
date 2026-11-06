@@ -1,4 +1,4 @@
-import { Scope } from '@trustwallet/connect-core'
+import type { Scope } from '@trustwallet/connect-core'
 
 export const EIP155_SCOPE = {
 	ID: 'eip155',

@@ -1,6 +1,6 @@
-export { TrustConnectProvider, useTrustConnectContext } from './context'
-export type { TrustConnectProviderProps } from './context'
-export { ReactContextError, MissingRequiredParamError, InvalidResponseError } from './errors'
+export { TrustConnectProvider, useTrustConnectContext } from './context.js'
+export type { TrustConnectProviderProps } from './context.js'
+export { ReactContextError, MissingRequiredParamError, InvalidResponseError } from './errors.js'
 export {
 	type TrustConnectOptions,
 	type NamespaceId,
@@ -31,4 +31,4 @@ export {
 	ChainNotSupportedError,
 	ConnectionFailedError,
 } from '@trustwallet/connect-core'
-export { useWallets, useConnection, useConnections, useConnect, useNamespaces, useWalletIds } from './hooks'
+export { useWallets, useConnection, useConnections, useConnect, useNamespaces, useWalletIds } from './hooks/index.js'

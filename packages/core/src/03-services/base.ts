@@ -1,4 +1,4 @@
-import { CaipWallet } from '../types'
+import type { CaipWallet } from '../types/index.js'
 
 export abstract class ServiceBase {
 	abstract id: string

@@ -1,4 +1,4 @@
-import { ReactNode, type MouseEvent as ReactMouseEvent, type RefObject } from 'react'
+import type { ReactNode, MouseEvent as ReactMouseEvent, RefObject } from 'react'
 import styles from './styles.module.css'
 
 interface ModalWrapperProps {

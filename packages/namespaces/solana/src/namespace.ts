@@ -1,7 +1,7 @@
-import { formatChainId, NamespaceConstructor, NamespaceEngine, Scope, MissingChainError } from '@trustwallet/connect-core'
-import { WalletStandardRegistry } from './registry'
-import { SOLANA_ICON, SOLANA_SCOPE } from './constants'
-import { CreateSolanaOptions } from './types/config'
+import { formatChainId, type NamespaceConstructor, NamespaceEngine, type Scope, MissingChainError } from '@trustwallet/connect-core'
+import { WalletStandardRegistry } from './registry.js'
+import { SOLANA_ICON, SOLANA_SCOPE } from './constants.js'
+import type { CreateSolanaOptions } from './types/config.js'
 
 export function createSolana(config: CreateSolanaOptions): NamespaceConstructor {
 	if (!config.chain) throw new MissingChainError(SOLANA_SCOPE.ID)

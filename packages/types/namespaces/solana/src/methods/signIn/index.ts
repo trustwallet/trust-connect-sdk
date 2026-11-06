@@ -1,4 +1,4 @@
-import type { SolanaAddress } from '../../address'
+import type { SolanaAddress } from '../../address.js'
 
 export type SignInMethod = 'signIn'
 

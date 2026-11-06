@@ -1,4 +1,4 @@
-import { ReactNode, type RefObject } from 'react'
+import type { ReactNode, RefObject } from 'react'
 import styles from './styles.module.css'
 
 interface ModalBodyProps {

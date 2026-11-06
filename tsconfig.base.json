@@ -1,9 +1,10 @@
 {
 	"compilerOptions": {
 		"target": "ES2020",
-		"module": "ESNext",
+		"module": "nodenext",
 		"lib": ["ES2020", "DOM"],
-		"moduleResolution": "bundler",
+		"moduleResolution": "nodenext",
+		"verbatimModuleSyntax": true,
 		"resolveJsonModule": true,
 		"allowJs": true,
 		"checkJs": false,

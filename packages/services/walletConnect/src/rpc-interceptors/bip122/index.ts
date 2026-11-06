@@ -3,7 +3,7 @@
  * Converts Bitcoin namespace RPC calls to WalletConnect format
  */
 
-import type { SignClientInstance } from '../../types'
+import type { SignClientInstance } from '../../types.js'
 import type { SessionTypes } from '@walletconnect/types'
 import type {
 	Account,
@@ -15,7 +15,7 @@ import type {
 	SignPsbtResponse,
 } from '@trustwallet/connect-bip122-types'
 import { bytesToBase64, base64ToBytes, bytesToHex, hexToBytes } from '@trustwallet/connect-utils/encoding'
-import { WalletConnectBIP122Request, WalletConnectBIP122Response } from '../../rpc-types'
+import type { WalletConnectBIP122Request, WalletConnectBIP122Response } from '../../rpc-types/index.js'
 import { AccountNotFoundError, UnsupportedMethodError } from '@trustwallet/connect-core'
 
 export type BIP122InterceptorContext = {

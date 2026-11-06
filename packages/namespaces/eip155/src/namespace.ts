@@ -1,7 +1,7 @@
-import { NamespaceConstructor, NamespaceEngine, Scope } from '@trustwallet/connect-core'
-import { EIP155Registry } from './registry'
-import { CreateEIP155Options } from './types/config'
-import { EIP155_ICON, EIP155_SCOPE } from './constants'
+import { type NamespaceConstructor, NamespaceEngine, type Scope } from '@trustwallet/connect-core'
+import { EIP155Registry } from './registry.js'
+import type { CreateEIP155Options } from './types/config.js'
+import { EIP155_ICON, EIP155_SCOPE } from './constants.js'
 
 export function createEIP155(config: CreateEIP155Options): NamespaceConstructor {
 	/** Supported chains are added dynamically. */

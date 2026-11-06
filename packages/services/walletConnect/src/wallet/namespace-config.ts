@@ -1,12 +1,12 @@
 import type { SessionTypes } from '@walletconnect/types'
-import type { SignClientInstance } from '../types'
-import type { NamespaceAccountData, NamespaceId } from './types'
-import { NAMESPACES } from '../constants'
+import type { SignClientInstance } from '../types.js'
+import type { NamespaceAccountData, NamespaceId } from './types.js'
+import { NAMESPACES } from '../constants.js'
 import { hexToBytes } from '@trustwallet/connect-utils/encoding'
 import { extractChainRef, extractAddress, buildChainId, type ChainId, InvalidChainRefError } from '@trustwallet/connect-core'
-import type { EIP155InterceptorContext } from '../rpc-interceptors/eip155'
-import type { SolanaInterceptorContext } from '../rpc-interceptors/solana'
-import type { BIP122InterceptorContext } from '../rpc-interceptors/bip122'
+import type { EIP155InterceptorContext } from '../rpc-interceptors/eip155/index.js'
+import type { SolanaInterceptorContext } from '../rpc-interceptors/solana/index.js'
+import type { BIP122InterceptorContext } from '../rpc-interceptors/bip122/index.js'
 
 const { EIP155, SOLANA, BIP122 } = NAMESPACES
 
@@ -50,7 +50,7 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 		},
 
 		getInterceptor: async () => {
-			const { interceptEip155Requests } = await import('../rpc-interceptors/eip155')
+			const { interceptEip155Requests } = await import('../rpc-interceptors/eip155/index.js')
 			return interceptEip155Requests
 		},
 
@@ -83,7 +83,7 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 		parseChain: (chain) => chain as ChainId,
 
 		getInterceptor: async () => {
-			const { interceptSolanaRequests } = await import('../rpc-interceptors/solana')
+			const { interceptSolanaRequests } = await import('../rpc-interceptors/solana/index.js')
 			return interceptSolanaRequests
 		},
 
@@ -114,7 +114,7 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 		parseChain: (chain) => chain as ChainId,
 
 		getInterceptor: async () => {
-			const { interceptBIP122Requests } = await import('../rpc-interceptors/bip122')
+			const { interceptBIP122Requests } = await import('../rpc-interceptors/bip122/index.js')
 			return interceptBIP122Requests
 		},
 

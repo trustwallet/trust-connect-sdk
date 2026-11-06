@@ -1,4 +1,4 @@
-export { useSignMessage, useSignSendTransaction } from './hooks'
+export { useSignMessage, useSignSendTransaction } from './hooks.js'
 export {
 	createSolana,
 	mainnet,

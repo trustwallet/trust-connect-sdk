@@ -1,6 +1,6 @@
-import { ChainReference, RegistryBase } from '@trustwallet/connect-core'
-import { BitcoinStandardWallet } from './wallet'
-import type { BitcoinWalletStandardWallet } from './types'
+import { type ChainReference, RegistryBase } from '@trustwallet/connect-core'
+import { BitcoinStandardWallet } from './wallet.js'
+import type { BitcoinWalletStandardWallet } from './types.js'
 
 const APP_READY = 'wallet-standard:app-ready'
 const REGISTER_WALLET = 'wallet-standard:register-wallet'

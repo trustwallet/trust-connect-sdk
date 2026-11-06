@@ -1,4 +1,4 @@
-import { BaseError } from './base'
+import { BaseError } from './base.js'
 
 export class InvalidChainRefError extends BaseError {
 	override name = 'InvalidChainRefError'

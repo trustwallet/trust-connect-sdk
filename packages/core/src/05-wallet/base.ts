@@ -1,4 +1,4 @@
-import {
+import type {
 	CaipSessionEvent,
 	ConnectedChain,
 	NamespaceAddress,
@@ -6,9 +6,9 @@ import {
 	NamespaceProvider,
 	CaipSessionResponse,
 	WalletType,
-} from '../types'
-import { CaipProvider } from '../types/caip'
-import { Emitter } from '../utils/emitter'
+} from '../types/index.js'
+import type { CaipProvider } from '../types/caip/index.js'
+import { Emitter } from '../utils/emitter.js'
 
 /**
  * A class that represents an individual wallet created by a single Namespace.

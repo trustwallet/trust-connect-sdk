@@ -1,21 +1,21 @@
 import {
-	ChainReference,
-	ConnectedChain,
-	NamespaceId,
+	type ChainReference,
+	type ConnectedChain,
+	type NamespaceId,
 	WalletAdapterBase,
 	AccountNotFoundError,
 	UnsupportedMethodError,
 } from '@trustwallet/connect-core'
-import {
+import type {
 	BIP122Address,
 	BIP122Provider,
 	BIP122RequestArguments,
 	BIP122RequestParams,
 	BIP122Response,
 } from '@trustwallet/connect-bip122-types'
-import type { UnisatWalletAPI } from './types'
+import type { UnisatWalletAPI } from './types.js'
 import { bytesToHex, hexToBytes, bytesToString } from '@trustwallet/connect-utils/encoding'
-import { BIP122_SCOPE } from '../../../constants'
+import { BIP122_SCOPE } from '../../../constants.js'
 
 export class UnisatWallet extends WalletAdapterBase<'namespace', BIP122Address, BIP122Provider> {
 	public id: string

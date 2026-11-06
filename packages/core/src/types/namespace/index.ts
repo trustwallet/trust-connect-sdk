@@ -1,7 +1,7 @@
-import { WalletAdapterBase } from '../../05-wallet/base'
-import { ChainId, ChainReference, NamespaceId } from '../caip'
-import { WalletType } from '../wallet'
-import type { NamespaceSpecs } from './specs'
+import type { WalletAdapterBase } from '../../05-wallet/base.js'
+import type { ChainId, ChainReference, NamespaceId } from '../caip/index.js'
+import type { WalletType } from '../wallet/index.js'
+import type { NamespaceSpecs } from './specs.js'
 
 export type Scope = {
 	ID: NamespaceId

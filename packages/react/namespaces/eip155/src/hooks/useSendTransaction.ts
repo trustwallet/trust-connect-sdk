@@ -10,8 +10,8 @@ import {
 	NoWalletConnectedError,
 	useConnection,
 } from '@trustwallet/connect-headless'
-import { createEIP155Transport } from '../transport'
-import { SendTransactionRequest, SendTransactionRequestFiltered, UseSendTransactionOptions } from '../types'
+import { createEIP155Transport } from '../transport.js'
+import type { SendTransactionRequest, SendTransactionRequestFiltered, UseSendTransactionOptions } from '../types.js'
 
 export function useSendTransaction(options: UseSendTransactionOptions = {}) {
 	const { connection } = useConnection({ namespaceId: EIP155_SCOPE.ID })

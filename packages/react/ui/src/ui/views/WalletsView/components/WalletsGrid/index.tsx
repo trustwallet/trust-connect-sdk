@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface WalletsGridProps {
 	children: ReactNode

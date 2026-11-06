@@ -1,5 +1,5 @@
-import { NamespaceId, Scope } from '@trustwallet/connect-core'
-import { SignClient } from '@walletconnect/sign-client'
+import type { NamespaceId, Scope } from '@trustwallet/connect-core'
+import type { SignClient } from '@walletconnect/sign-client'
 
 export type SignClientMetadata = {
 	name: string

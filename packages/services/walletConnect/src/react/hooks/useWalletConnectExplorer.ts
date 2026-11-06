@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
-import { WalletConnectExplorer, type ExplorerWallet } from '../../explorer-api'
-import { useWalletConnectService } from './useWalletConnectService'
+import { WalletConnectExplorer, type ExplorerWallet } from '../../explorer-api/index.js'
+import { useWalletConnectService } from './useWalletConnectService.js'
 import { getPlatform } from '@trustwallet/connect-utils'
-import { WalletConnectServiceNotInitializedError } from '../../errors'
+import { WalletConnectServiceNotInitializedError } from '../../errors/index.js'
 
 /**
  * Hook to fetch and paginate WalletConnect explorer wallets

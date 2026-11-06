@@ -1,19 +1,19 @@
 import {
 	WalletAdapterBase,
-	NamespaceId,
-	WalletType,
-	CaipProvider,
-	CaipSessionResponse,
-	ChainId,
+	type NamespaceId,
+	type WalletType,
+	type CaipProvider,
+	type CaipSessionResponse,
+	type ChainId,
 	extractNamespace,
 	NoActiveSessionError,
 } from '@trustwallet/connect-core'
 import type { SessionTypes } from '@walletconnect/types'
-import { WalletConnectService } from '../service/service'
-import { NAMESPACES, WALLETCONNECT_WALLET } from '../constants'
-import type { SignClientInstance } from '../types'
-import type { NamespaceAccountData, NamespaceId as WalletNamespaceId } from './types'
-import { NAMESPACE_CONFIG } from './namespace-config'
+import type { WalletConnectService } from '../service/service.js'
+import { NAMESPACES, WALLETCONNECT_WALLET } from '../constants.js'
+import type { SignClientInstance } from '../types.js'
+import type { NamespaceAccountData, NamespaceId as WalletNamespaceId } from './types.js'
+import { NAMESPACE_CONFIG } from './namespace-config.js'
 
 type WalletAdapterOptions = {
 	walletConnectService: WalletConnectService

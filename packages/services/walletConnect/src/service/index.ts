@@ -1,9 +1,9 @@
-import { NamespaceId, Scope } from '@trustwallet/connect-core'
-import type { SignClientInstance, WalletConnectOptions } from '../types'
-import { WalletConnectService } from './service'
-import { MissingProjectIdError } from '../errors'
+import type { NamespaceId, Scope } from '@trustwallet/connect-core'
+import type { SignClientInstance, WalletConnectOptions } from '../types.js'
+import { WalletConnectService } from './service.js'
+import { MissingProjectIdError } from '../errors/index.js'
 
-export { WalletConnectService } from './service'
+export { WalletConnectService } from './service.js'
 
 export function createWalletConnect(options: WalletConnectOptions) {
 	if (!options.projectId) throw new MissingProjectIdError()

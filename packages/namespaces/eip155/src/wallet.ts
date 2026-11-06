@@ -1,7 +1,7 @@
-import { ConnectedChain, NamespaceId, WalletAdapterBase, WalletType } from '@trustwallet/connect-core'
-import { EIP1193Provider, EIP155WalletOptions } from './types/config'
-import { EIP155_SCOPE } from './constants'
-import { EIP155Address, EIP155Provider } from '@trustwallet/connect-eip155-types'
+import { type ConnectedChain, type NamespaceId, WalletAdapterBase, type WalletType } from '@trustwallet/connect-core'
+import type { EIP1193Provider, EIP155WalletOptions } from './types/config.js'
+import { EIP155_SCOPE } from './constants.js'
+import type { EIP155Address, EIP155Provider } from '@trustwallet/connect-eip155-types'
 
 const { METHODS, EVENTS } = EIP155_SCOPE
 export class EIP155Wallet extends WalletAdapterBase {

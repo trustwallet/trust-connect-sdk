@@ -1,4 +1,4 @@
-import { BaseError } from './base'
+import { BaseError } from './base.js'
 
 export class UnsupportedMethodError extends BaseError {
 	override name = 'UnsupportedMethodError'

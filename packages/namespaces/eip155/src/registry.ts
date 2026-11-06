@@ -1,6 +1,6 @@
 import { RegistryBase } from '@trustwallet/connect-core'
-import { EIP155Wallet } from './wallet'
-import { EIP6963AnnounceProviderEvent } from './types/config'
+import { EIP155Wallet } from './wallet.js'
+import type { EIP6963AnnounceProviderEvent } from './types/config.js'
 
 export class EIP155Registry extends RegistryBase {
 	protected wallets: EIP155Wallet[] = []

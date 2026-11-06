@@ -1,17 +1,17 @@
-import type { SolanaChainId } from './chain'
-import type { SignMessageMethod, SignMessageParams, SignMessageResponse } from './methods/signMessage'
-import type { SignTransactionMethod, SignTransactionParams, SignTransactionResponse } from './methods/signTransaction'
+import type { SolanaChainId } from './chain.js'
+import type { SignMessageMethod, SignMessageParams, SignMessageResponse } from './methods/signMessage/index.js'
+import type { SignTransactionMethod, SignTransactionParams, SignTransactionResponse } from './methods/signTransaction/index.js'
 import type {
 	SignAndSendTransactionMethod,
 	SignAndSendTransactionParams,
 	SignAndSendTransactionResponse,
-} from './methods/signAndSendTransaction'
+} from './methods/signAndSendTransaction/index.js'
 import type {
 	SignAndSendAllTransactionsMethod,
 	SignAndSendAllTransactionsParams,
 	SignAndSendAllTransactionsResponse,
-} from './methods/signAndSendAllTransactions'
-import type { SignInMethod, SignInParams, SignInResponse } from './methods/signIn'
+} from './methods/signAndSendAllTransactions/index.js'
+import type { SignInMethod, SignInParams, SignInResponse } from './methods/signIn/index.js'
 
 export type SolanaProvider = {
 	request<T extends SolanaRequestArguments>(args: SolanaRequestParams<T>): Promise<SolanaResponse<T>>

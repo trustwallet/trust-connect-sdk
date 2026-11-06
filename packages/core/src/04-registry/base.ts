@@ -1,5 +1,5 @@
-import type { WalletAdapterBase } from '../05-wallet/base'
-import { Emitter } from '../utils/emitter'
+import type { WalletAdapterBase } from '../05-wallet/base.js'
+import { Emitter } from '../utils/emitter.js'
 
 /**
  * Base class for registries that manage wallet discovery for a specific namespace.

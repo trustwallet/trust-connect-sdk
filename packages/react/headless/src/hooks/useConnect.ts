@@ -1,8 +1,8 @@
 import { useCallback, useSyncExternalStore } from 'react'
 import type { NamespaceId, Wallet, WalletAdapterBase } from '@trustwallet/connect-core'
-import { useTrustConnectContext } from '../context'
-import { useWallets } from './useWallets'
-import { useWalletsByNamespace } from './useWalletsByNamespace'
+import { useTrustConnectContext } from '../context.js'
+import { useWallets } from './useWallets.js'
+import { useWalletsByNamespace } from './useWalletsByNamespace.js'
 
 /**
  * Main hook for managing wallet connections in TrustConnect.

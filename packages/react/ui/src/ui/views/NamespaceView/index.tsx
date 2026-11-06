@@ -1,7 +1,7 @@
 import { NamespaceViewLogic } from '@trustwallet/connect-ui-logic'
-import { NamespaceButton } from '../../buttons/NamespaceButton'
-import { NamespaceHeader } from './components/NamespaceHeader'
-import { NamespaceGrid } from './components/NamespaceGrid'
+import { NamespaceButton } from '../../buttons/NamespaceButton/index.js'
+import { NamespaceHeader } from './components/NamespaceHeader/index.js'
+import { NamespaceGrid } from './components/NamespaceGrid/index.js'
 
 export function NamespaceView() {
 	return (

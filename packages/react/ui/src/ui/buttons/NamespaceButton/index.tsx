@@ -1,6 +1,6 @@
 import type { KeyboardEvent as ReactKeyboardEvent } from 'react'
 import styles from './styles.module.css'
-import { Spinner } from '../../icons/Spinner'
+import { Spinner } from '../../icons/Spinner.js'
 
 type NamespaceButtonProps = {
 	label: string

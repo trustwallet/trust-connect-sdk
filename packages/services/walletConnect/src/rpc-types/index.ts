@@ -1,3 +1,3 @@
-export * from './eip155'
-export * from './solana'
-export * from './bip122'
+export * from './eip155.js'
+export * from './solana.js'
+export * from './bip122.js'

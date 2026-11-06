@@ -1,8 +1,8 @@
 import type { RefObject } from 'react'
 import styles from './styles.module.css'
-import { WalletButton } from '../../../../buttons/WalletButton'
-import { Spinner } from '../../../../icons/Spinner'
-import { ExplorerWallet } from '@trustwallet/connect-ui-logic/walletConnect'
+import { WalletButton } from '../../../../buttons/WalletButton/index.js'
+import { Spinner } from '../../../../icons/Spinner.js'
+import type { ExplorerWallet } from '@trustwallet/connect-ui-logic/walletConnect'
 
 interface MobileWalletsListProps {
 	wallets: ExplorerWallet[]

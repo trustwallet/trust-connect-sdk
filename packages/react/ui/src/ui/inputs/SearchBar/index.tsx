@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from 'react'
 import styles from './styles.module.css'
-import { SearchIcon } from '../../icons/SearchIcon'
-import { CloseIcon } from '../../icons/CloseIcon'
+import { SearchIcon } from '../../icons/SearchIcon.js'
+import { CloseIcon } from '../../icons/CloseIcon.js'
 
 interface SearchBarProps {
 	value: string

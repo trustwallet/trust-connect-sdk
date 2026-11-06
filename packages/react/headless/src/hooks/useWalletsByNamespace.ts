@@ -1,7 +1,7 @@
 import { useMemo, useSyncExternalStore } from 'react'
 import type { NamespaceId, WalletAdapterBase } from '@trustwallet/connect-core'
 import { NamespaceNotFoundError } from '@trustwallet/connect-core'
-import { useTrustConnectContext } from '../context'
+import { useTrustConnectContext } from '../context.js'
 
 /**
  * Get all wallets from TrustConnect registry.

@@ -1,4 +1,4 @@
-import type { BIP122Address } from '../../address'
+import type { BIP122Address } from '../../address.js'
 
 export type SendTransferMethod = 'sendTransfer'
 

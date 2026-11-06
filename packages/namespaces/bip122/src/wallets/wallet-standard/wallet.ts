@@ -1,13 +1,13 @@
 import {
-	ChainReference,
-	ConnectedChain,
-	NamespaceId,
+	type ChainReference,
+	type ConnectedChain,
+	type NamespaceId,
 	WalletAdapterBase,
 	stringToWalletId,
 	UnsupportedMethodError,
 	AccountNotFoundError,
 } from '@trustwallet/connect-core'
-import {
+import type {
 	BIP122Address,
 	BIP122Provider,
 	BIP122RequestArguments,
@@ -21,8 +21,8 @@ import type {
 	BitcoinSignMessageFeature,
 	BitcoinSignTransactionFeature,
 	BitcoinSignAndSendTransactionFeature,
-} from './types'
-import { BIP122_SCOPE, BITCOIN_WALLET_STANDARD_FEATURES } from '../../constants'
+} from './types.js'
+import { BIP122_SCOPE, BITCOIN_WALLET_STANDARD_FEATURES } from '../../constants.js'
 
 function getFeature<T>(wallet: BitcoinWalletStandardWallet, featureName: string): T | undefined {
 	return wallet.features[featureName] as T | undefined

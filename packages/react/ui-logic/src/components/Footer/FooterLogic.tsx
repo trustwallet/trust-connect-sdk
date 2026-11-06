@@ -1,4 +1,4 @@
-import { type ComponentType } from 'react'
+import type { ComponentType } from 'react'
 import { TRUST_WALLET } from '@trustwallet/connect-utils'
 
 interface FooterLogicProps {

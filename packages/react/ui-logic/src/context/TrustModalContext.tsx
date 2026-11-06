@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { NamespaceId, Wallet, CaipWallet } from '@trustwallet/connect-headless'
 import { useConnect, ReactContextError, useNamespaces } from '@trustwallet/connect-headless'
-import { useTheme, type Theme, type ResolvedTheme } from '../hooks/useTheme'
+import { useTheme, type Theme, type ResolvedTheme } from '../hooks/useTheme.js'
 
 export type ModalView = 'wallets' | 'networks' | 'qr'
 

@@ -1,6 +1,6 @@
-import type { WalletAdapterBase } from '../05-wallet/base'
-import { ChainId } from './caip'
-import type { CaipWallet, NamespaceWallet } from './wallet'
+import type { WalletAdapterBase } from '../05-wallet/base.js'
+import type { ChainId } from './caip/index.js'
+import type { CaipWallet, NamespaceWallet } from './wallet/index.js'
 
 /**
  * Augmented placeholder types for safe casting in the UI layer.

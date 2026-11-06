@@ -1,5 +1,5 @@
-import { RegistryBase } from '@trustwallet/connect-core'
-import { RpcUrls } from '@trustwallet/connect-core'
+import type { RegistryBase } from '@trustwallet/connect-core'
+import type { RpcUrls } from '@trustwallet/connect-core'
 
 export type EIP155WalletOptions = EIP6963ProviderDetail
 

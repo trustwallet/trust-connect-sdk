@@ -1,6 +1,6 @@
 import type { Cast, NamespaceId } from '@trustwallet/connect-core'
 import { useMemo } from 'react'
-import { useConnections } from './useConnections'
+import { useConnections } from './useConnections.js'
 
 interface WalletIds {
 	connectedWalletIds: string[]

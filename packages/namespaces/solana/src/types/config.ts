@@ -1,6 +1,6 @@
-import { RegistryBase } from '@trustwallet/connect-core'
+import type { RegistryBase } from '@trustwallet/connect-core'
 import type { SolanaChainId } from '@trustwallet/connect-solana-types'
-import { RpcUrls } from '@trustwallet/connect-core'
+import type { RpcUrls } from '@trustwallet/connect-core'
 /**
  * Configuration options for creating a Solana namespace
  */

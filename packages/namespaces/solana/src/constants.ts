@@ -1,4 +1,4 @@
-import { Scope } from '@trustwallet/connect-core'
+import type { Scope } from '@trustwallet/connect-core'
 
 /**
  * Standard Wallet Standard feature names
