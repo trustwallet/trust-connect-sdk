@@ -32,8 +32,8 @@
 		"@trustwallet/connect-eip155-types": "workspace:*",
 		"@trustwallet/connect-solana-types": "workspace:*",
 		"@trustwallet/connect-utils": "workspace:*",
-		"@walletconnect/sign-client": "2.23.1",
-		"@walletconnect/types": "2.23.1"
+		"@walletconnect/sign-client": "2.23.10",
+		"@walletconnect/types": "2.23.10"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0"

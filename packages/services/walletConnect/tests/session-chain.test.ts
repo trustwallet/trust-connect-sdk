@@ -29,13 +29,13 @@ function createSession() {
 				chains: ['eip155:1', 'eip155:137'],
 				methods: ['eth_sendTransaction', 'wallet_switchEthereumChain'],
 				events: ['accountsChanged', 'chainChanged'],
-				accounts: [EIP155_ACCOUNT],
+				accounts: [EIP155_ACCOUNT, 'eip155:1:0xnew', 'eip155:1:0xdef'],
 			},
 			bip122: {
 				chains: [BIP122_CHAIN],
 				methods: [],
 				events: ['accountsChanged'],
-				accounts: [BIP122_ACCOUNT],
+				accounts: [BIP122_ACCOUNT, `${BIP122_CHAIN}:bc1qnew`, `${BIP122_CHAIN}:bc1qcaip`],
 			},
 		},
 	}
@@ -207,6 +207,59 @@ describe('WalletConnect session events', () => {
 				chainId: 'eip155:137',
 			}),
 		)
+	})
+
+	it('ignores an accountsChanged address that is not in the approved session', async () => {
+		const { client, eip155, bip122, wallet } = await connectWallet()
+
+		client.emit('session_event', {
+			topic: 'topic-1',
+			params: {
+				chainId: 'eip155:1',
+				event: { name: 'accountsChanged', data: ['0xnotinsession'] },
+			},
+		})
+		client.emit('session_event', {
+			topic: 'topic-1',
+			params: {
+				chainId: BIP122_CHAIN,
+				event: {
+					name: 'accountsChanged',
+					data: [{ address: 'bc1qnotinsession', addressType: 'p2wpkh' }],
+				},
+			},
+		})
+
+		const provider = await wallet.getProvider()
+		const accounts = await provider.request<string[]>({
+			chainId: 'eip155:1',
+			request: { method: 'eth_accounts' },
+		})
+
+		expect(eip155.getConnection().address).toBe('0xabc')
+		expect(accounts).toEqual(['0xabc'])
+		expect(bip122.getConnection().address).toBe('bc1qold')
+	})
+
+	it('ignores a chainChanged value outside the approved session chains', async () => {
+		const { client, eip155, wallet } = await connectWallet()
+
+		client.emit('session_event', {
+			topic: 'topic-1',
+			params: {
+				chainId: 'eip155:1',
+				event: { name: 'chainChanged', data: '0x539' },
+			},
+		})
+
+		const provider = await wallet.getProvider()
+		const chainId = await provider.request<string>({
+			chainId: 'eip155:1',
+			request: { method: 'eth_chainId' },
+		})
+
+		expect(chainId).toBe('0x1')
+		expect(eip155.getConnection().chain).toEqual({ namespace: 'eip155', reference: '1' })
 	})
 })
 
