@@ -74,7 +74,8 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 
 		parseAccountsChangedEvent: (data: unknown) => {
 			const accounts = data as string[]
-			return { address: accounts[0] }
+			const raw = accounts?.[0]
+			return { address: typeof raw === 'string' ? extractAddress(raw) : undefined }
 		},
 
 		parseChainChangedEvent: (data: unknown) => {
@@ -113,7 +114,8 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 
 		parseAccountsChangedEvent: (data: unknown) => {
 			const accounts = data as string[]
-			return { pubkey: accounts[0] }
+			const raw = accounts?.[0]
+			return { pubkey: typeof raw === 'string' ? extractAddress(raw) : undefined }
 		},
 
 		parseChainChangedEvent: (data: unknown) => {
@@ -162,7 +164,7 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 			const accountData = accounts[0]
 
 			return {
-				address: accountData?.address,
+				address: accountData?.address ? extractAddress(accountData.address) : undefined,
 				publicKey: accountData?.publicKey ? hexToBytes(accountData.publicKey) : undefined,
 				addressType: accountData?.addressType,
 			}
