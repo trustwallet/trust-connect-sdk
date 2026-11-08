@@ -15,6 +15,11 @@ export type EIP155InterceptorContext = {
 	currentChainId: `eip155:${number}`
 	currentAddress?: `0x${string}`
 	supportedChains: string[]
+	/**
+	 * Stores the chain getProvider() will use on the next request.
+	 * Returns false when the stored chain is still the previous one.
+	 */
+	persistChainId?: (chainId: `eip155:${number}`) => boolean
 }
 
 export type EIP155RequestArgs = {
@@ -43,9 +48,18 @@ export async function interceptEip155Requests<T = unknown>(
 				throw new InvalidChainRefError(chainIdParam, 'eip155')
 			}
 
-			const targetChain = `eip155:${numRef}`
+			const targetChain = `eip155:${numRef}` as `eip155:${number}`
 			if (!supportedChains.includes(targetChain)) {
 				throw new ChainNotSupportedError(chainIdParam, supportedChains)
+			}
+
+			if (targetChain === currentChainId) {
+				return null as T
+			}
+
+			const persisted = context.persistChainId?.(targetChain) === true
+			if (!persisted) {
+				throw new Error(`Chain switch to ${targetChain} was not applied`)
 			}
 
 			return null as T

@@ -108,17 +108,32 @@ export class CaipController extends CaipControllerBase {
 		const namespace = this.namespaces.get(namespaceId)
 		const connection = namespace?.getConnection()
 
-		if (!connection || connection.status !== 'connected') return
+		if (!namespace || !connection || connection.status !== 'connected') return
 
 		if (CAIP.NAMESPACES.EVENTS.ADDRESS_CHANGED.includes(event.name)) {
-			const accounts = event.data as string[]
-			connection.wallet.__internal.setAddress(accounts[0])
+			const accounts = Array.isArray(event.data) ? event.data : []
+			const address = typeof accounts[0] === 'string' ? accounts[0] : undefined
+			connection.wallet.__internal.setAddress(address)
+			if (address) {
+				namespace.setConnection({
+					...connection,
+					address,
+				})
+			}
 		} else if (CAIP.NAMESPACES.EVENTS.CHAIN_REFERENCE_CHANGED.includes(event.name)) {
-			const reference = extractChainRef(event.data as string)
+			if (typeof event.data !== 'string' && typeof event.data !== 'number') return
 
-			connection.wallet.__internal.setChain({
+			const reference = extractChainRef(String(event.data))
+			if (!reference || reference === 'NaN') return
+
+			const chain = {
 				namespace: namespaceId,
 				reference,
+			}
+			connection.wallet.__internal.setChain(chain)
+			namespace.setConnection({
+				...connection,
+				chain,
 			})
 		}
 	}
