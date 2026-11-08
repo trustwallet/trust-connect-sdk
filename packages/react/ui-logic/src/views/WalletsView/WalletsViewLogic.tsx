@@ -5,12 +5,12 @@ import {
 	type CaipWallet,
 	useConnections,
 	useNamespaces,
-	Cast,
+	type Cast,
 	MissingRequiredParamError,
 	useWalletIds,
 } from '@trustwallet/connect-headless'
-import { useTrustModal } from '../../context/TrustModalContext'
-import { handleConnectWallet } from '../../utils/handleConnectWallet'
+import { useTrustModal } from '../../context/TrustModalContext.js'
+import { handleConnectWallet } from '../../utils/handleConnectWallet.js'
 import { useMemo, type ComponentType } from 'react'
 import { TRUST_WALLET } from '@trustwallet/connect-utils'
 

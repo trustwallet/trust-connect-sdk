@@ -1,4 +1,4 @@
-import { ChainId, NamespaceId, Scope } from '@trustwallet/connect-core'
+import type { ChainId, NamespaceId, Scope } from '@trustwallet/connect-core'
 
 const NAMESPACES_REQUIRING_PREFIX: Set<NamespaceId> = new Set(['solana'])
 

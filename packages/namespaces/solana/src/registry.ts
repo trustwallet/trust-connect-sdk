@@ -1,11 +1,11 @@
-import { ChainReference, RegistryBase } from '@trustwallet/connect-core'
-import { SolanaStandardWallet } from './wallet'
+import { type ChainReference, RegistryBase } from '@trustwallet/connect-core'
+import { SolanaStandardWallet } from './wallet.js'
 import type {
 	WalletStandardRegisterWalletEvent,
 	WalletStandardWallet,
 	WalletStandardAppReadyApi,
-} from './types/wallet-standard'
-import { SOLANA_SCOPE } from './constants'
+} from './types/wallet-standard.js'
+import { SOLANA_SCOPE } from './constants.js'
 
 const APP_READY = 'wallet-standard:app-ready'
 const REGISTER_WALLET = 'wallet-standard:register-wallet'

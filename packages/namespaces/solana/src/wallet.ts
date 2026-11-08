@@ -1,29 +1,29 @@
 import {
-	ChainReference,
-	ConnectedChain,
-	NamespaceId,
+	type ChainReference,
+	type ConnectedChain,
+	type NamespaceId,
 	stringToWalletId,
 	WalletAdapterBase,
 	UnsupportedMethodError,
 	AccountNotFoundError,
 	ConnectionFailedError,
 } from '@trustwallet/connect-core'
-import {
+import type {
 	WalletStandardAccount,
 	WalletStandardConnectFeature,
 	WalletStandardDisconnectFeature,
 	WalletStandardEventsFeature,
 	WalletStandardWallet,
-} from './types/wallet-standard'
-import {
+} from './types/wallet-standard.js'
+import type {
 	SolanaProvider,
 	SolanaRequestArguments,
 	SolanaRequestParams,
 	SolanaResponse,
 	SolanaAddress,
 } from '@trustwallet/connect-solana-types'
-import { FEATURES, SOLANA_SCOPE } from './constants'
-import { getFeature } from './utils/getFeature'
+import { FEATURES, SOLANA_SCOPE } from './constants.js'
+import { getFeature } from './utils/getFeature.js'
 
 export class SolanaStandardWallet extends WalletAdapterBase<'namespace', SolanaAddress, SolanaProvider> {
 	public id: string

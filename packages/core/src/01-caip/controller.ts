@@ -1,9 +1,9 @@
-import { CAIP } from '../constants/caip'
-import { CaipSessionEvent, CaipSessionResponse, CaipWallet, NamespaceId } from '../types'
-import { NamespaceEngine } from '../02-namespace/engine'
-import { CaipControllerBase } from './base'
-import { extractAddress, extractChainRef, extractNamespace } from '../utils/caip'
-import { NoActiveSessionError } from '../errors'
+import { CAIP } from '../constants/caip.js'
+import type { CaipSessionEvent, CaipSessionResponse, CaipWallet, NamespaceId } from '../types/index.js'
+import type { NamespaceEngine } from '../02-namespace/engine.js'
+import { CaipControllerBase } from './base.js'
+import { extractAddress, extractChainRef, extractNamespace } from '../utils/caip.js'
+import { NoActiveSessionError } from '../errors/index.js'
 
 export class CaipController extends CaipControllerBase {
 	namespaces: Map<NamespaceId, NamespaceEngine> = new Map()

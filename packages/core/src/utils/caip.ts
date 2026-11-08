@@ -1,4 +1,4 @@
-import { Address, ChainId, ChainReference, NamespaceId } from '../types'
+import type { Address, ChainId, ChainReference, NamespaceId } from '../types/index.js'
 
 export function extractChainRef(chain: ChainId | ChainReference): ChainReference {
 	const strChain = chain.toString()

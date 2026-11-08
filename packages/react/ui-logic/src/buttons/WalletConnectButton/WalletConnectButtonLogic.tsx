@@ -1,7 +1,7 @@
 import { useWalletConnect } from '@trustwallet/connect-walletconnect/react'
 import { useConnect, useWalletIds } from '@trustwallet/connect-headless'
-import { type ComponentType } from 'react'
-import { useTrustModal } from '../../context/TrustModalContext'
+import type { ComponentType } from 'react'
+import { useTrustModal } from '../../context/TrustModalContext.js'
 
 interface WalletConnectButtonLogicProps {
 	components: {

@@ -1,7 +1,7 @@
 import type { NamespaceId, Cast } from '@trustwallet/connect-headless'
 import { useNamespaces, useConnect, useConnections } from '@trustwallet/connect-headless'
-import { useTrustModal } from '../../context/TrustModalContext'
-import { handleConnectWallet } from '../../utils/handleConnectWallet'
+import { useTrustModal } from '../../context/TrustModalContext.js'
+import { handleConnectWallet } from '../../utils/handleConnectWallet.js'
 import type { ComponentType } from 'react'
 
 interface NamespaceViewLogicProps {

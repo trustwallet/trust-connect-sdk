@@ -1,2 +1,2 @@
-export { useWalletConnect } from './useWalletConnect'
-export { useWalletConnectExplorer } from './useWalletConnectExplorer'
+export { useWalletConnect } from './useWalletConnect.js'
+export { useWalletConnectExplorer } from './useWalletConnectExplorer.js'

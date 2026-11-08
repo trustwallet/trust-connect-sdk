@@ -1,6 +1,6 @@
-import type { SolanaAddress } from '../../address'
-import type { SolanaChainId } from '../../chain'
-import type { SolanaCommitment } from '../../commitment'
+import type { SolanaAddress } from '../../address.js'
+import type { SolanaChainId } from '../../chain.js'
+import type { SolanaCommitment } from '../../commitment.js'
 
 export type SignAndSendTransactionMethod = 'signAndSendTransaction'
 

@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from 'react'
 import type { NamespaceId, Wallet, WalletAdapterBase } from '@trustwallet/connect-core'
-import { useTrustConnectContext } from '../context'
-import { useWalletsByNamespace } from './useWalletsByNamespace'
+import { useTrustConnectContext } from '../context.js'
+import { useWalletsByNamespace } from './useWalletsByNamespace.js'
 
 /**
  * Get all wallets from TrustConnect registry.

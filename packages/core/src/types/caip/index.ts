@@ -1,4 +1,4 @@
-import type { NamespaceSpecs } from '../namespace/specs'
+import type { NamespaceSpecs } from '../namespace/specs.js'
 
 // NamespaceId is now derived from NamespaceSpecs keys, making it augmentative
 export type NamespaceId = keyof NamespaceSpecs extends never ? string : keyof NamespaceSpecs

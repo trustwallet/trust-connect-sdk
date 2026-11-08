@@ -2,8 +2,8 @@ import { useEffect, useState, type ComponentType, type MouseEvent as ReactMouseE
 import { createPortal } from 'react-dom'
 import { useConnect } from '@trustwallet/connect-headless'
 import { isMobile } from '@trustwallet/connect-utils'
-import { useTrustModal } from '../context/TrustModalContext'
-import { useAnimateTransition } from '../hooks/useAnimateTransition'
+import { useTrustModal } from '../context/TrustModalContext.js'
+import { useAnimateTransition } from '../hooks/useAnimateTransition.js'
 
 interface ViewConfig {
 	title: string

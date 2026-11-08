@@ -1,4 +1,4 @@
-import { UseMutationOptions } from '@tanstack/react-query'
+import type { UseMutationOptions } from '@tanstack/react-query'
 
 /**
  * Parameters for signing a message

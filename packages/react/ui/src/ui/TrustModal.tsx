@@ -1,14 +1,14 @@
 import '../styles/global.css'
 import { TrustModalLogic } from '@trustwallet/connect-ui-logic'
-import { MobileWalletsView } from './views/MobileWalletsView'
-import { WalletsView } from './views/WalletsView'
-import { NamespaceView } from './views/NamespaceView'
-import { QRView } from './views/QRView'
-import { ModalOverlay } from './layout/ModalOverlay'
-import { ModalWrapper } from './layout/ModalWrapper'
-import { ModalHeader } from './layout/ModalHeader'
-import { ModalBody } from './layout/ModalBody'
-import { ModalError } from './layout/ModalError'
+import { MobileWalletsView } from './views/MobileWalletsView/index.js'
+import { WalletsView } from './views/WalletsView/index.js'
+import { NamespaceView } from './views/NamespaceView/index.js'
+import { QRView } from './views/QRView/index.js'
+import { ModalOverlay } from './layout/ModalOverlay/index.js'
+import { ModalWrapper } from './layout/ModalWrapper/index.js'
+import { ModalHeader } from './layout/ModalHeader/index.js'
+import { ModalBody } from './layout/ModalBody/index.js'
+import { ModalError } from './layout/ModalError/index.js'
 
 export function TrustModal() {
 	return (

@@ -1,5 +1,5 @@
-import type { SolanaAddress } from '../../address'
-import type { SolanaCommitment } from '../../commitment'
+import type { SolanaAddress } from '../../address.js'
+import type { SolanaCommitment } from '../../commitment.js'
 
 export type SignTransactionMethod = 'signTransaction'
 

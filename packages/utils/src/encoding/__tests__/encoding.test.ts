@@ -12,7 +12,7 @@ import {
 	hexToBase64,
 	bytesToBase58,
 	base58ToBytes,
-} from '../index'
+} from '../index.js'
 
 describe('Hex encoding', () => {
 	it('should correctly convert a valid lowercase hex string to bytes', () => {

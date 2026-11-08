@@ -1,5 +1,5 @@
-export * from './types'
-export { useSignMessage, useSignPsbt, useSendTransfer } from './hooks'
+export * from './types.js'
+export { useSignMessage, useSignPsbt, useSendTransfer } from './hooks.js'
 export {
 	mainnet,
 	testnet,

@@ -1,6 +1,6 @@
-import { UseMutationOptions, UseQueryOptions } from '@tanstack/react-query'
+import type { UseMutationOptions, UseQueryOptions } from '@tanstack/react-query'
 import type { sendTransaction, signMessage, writeContract, waitForTransactionReceipt } from 'viem/actions'
-import { Chain } from 'viem'
+import type { Chain } from 'viem'
 
 /**
  * Options for useEIP155Query hook

@@ -1,8 +1,8 @@
-import { formatChainId, NamespaceConstructor, NamespaceEngine, MissingChainError } from '@trustwallet/connect-core'
-import { BitcoinWalletStandardRegistry } from './wallets/wallet-standard/registry'
-import { BIP122_ICON, BIP122_SCOPE } from './constants'
-import { InjectedRegistry } from './wallets/injected/registry'
-import { CreateBIP122Options } from './types/config'
+import { formatChainId, type NamespaceConstructor, NamespaceEngine, MissingChainError } from '@trustwallet/connect-core'
+import { BitcoinWalletStandardRegistry } from './wallets/wallet-standard/registry.js'
+import { BIP122_ICON, BIP122_SCOPE } from './constants.js'
+import { InjectedRegistry } from './wallets/injected/registry.js'
+import type { CreateBIP122Options } from './types/config.js'
 
 export function createBIP122(config: CreateBIP122Options): NamespaceConstructor {
 	if (!config.chain) throw new MissingChainError(BIP122_SCOPE.ID)

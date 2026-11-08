@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTrustConnectContext } from '@trustwallet/connect-headless'
-import type { WalletConnectService } from '../../service/service'
-import { WALLETCONNECT_WALLET } from '../../constants'
+import type { WalletConnectService } from '../../service/service.js'
+import { WALLETCONNECT_WALLET } from '../../constants.js'
 
 /**
  * Internal hook to get the WalletConnect service instance

@@ -1,5 +1,5 @@
-import { BIP122ChainId } from '@trustwallet/connect-bip122-types'
-import { RpcUrls } from '@trustwallet/connect-core'
+import type { BIP122ChainId } from '@trustwallet/connect-bip122-types'
+import type { RpcUrls } from '@trustwallet/connect-core'
 /**
  * Configuration options for creating a BIP122 namespace
  */

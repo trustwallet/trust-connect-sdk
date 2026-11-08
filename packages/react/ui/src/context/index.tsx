@@ -2,10 +2,10 @@ import {
 	TrustModalProvider,
 	type Theme,
 	TrustConnectProvider as _TrustConnectProvider,
-	TrustConnectOptions,
+	type TrustConnectOptions,
 } from '@trustwallet/connect-ui-logic'
-import { TrustModal } from '../ui/TrustModal'
-import { ReactNode } from 'react'
+import { TrustModal } from '../ui/TrustModal.js'
+import type { ReactNode } from 'react'
 
 export type TrustConnectProviderProps = {
 	children: ReactNode

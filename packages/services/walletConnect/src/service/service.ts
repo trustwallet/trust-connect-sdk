@@ -1,8 +1,8 @@
-import type { SignClientInstance, SignClientMetadata, WalletConnectServiceOptions } from '../types'
-import { NamespaceId, ServiceBase, Emitter, Scope } from '@trustwallet/connect-core'
-import { WALLETCONNECT_WALLET } from '../constants'
-import { WalletConnectWalletAdapter } from '../wallet'
-import { scopeInterceptor } from '../scope-interceptor'
+import type { SignClientInstance, SignClientMetadata, WalletConnectServiceOptions } from '../types.js'
+import { type NamespaceId, ServiceBase, Emitter, type Scope } from '@trustwallet/connect-core'
+import { WALLETCONNECT_WALLET } from '../constants.js'
+import { WalletConnectWalletAdapter } from '../wallet/index.js'
+import { scopeInterceptor } from '../scope-interceptor/index.js'
 
 type ConnectParams = {
 	optionalNamespaces?: Record<

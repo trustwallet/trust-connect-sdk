@@ -3,7 +3,7 @@
  * Reference: https://docs.walletconnect.network/walletguide/explorer
  */
 
-import { WalletConnectExplorerApiError } from '../errors'
+import { WalletConnectExplorerApiError } from '../errors/index.js'
 
 export interface ExplorerWallet {
 	id: string

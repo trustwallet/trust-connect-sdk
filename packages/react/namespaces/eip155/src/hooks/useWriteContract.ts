@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import type { Chain } from 'viem'
-import { createClient, WriteContractReturnType } from 'viem'
+import { createClient, type WriteContractReturnType } from 'viem'
 import { switchChain, waitForTransactionReceipt, writeContract } from 'viem/actions'
 import { useCallback, useRef } from 'react'
 import { EIP155_SCOPE } from '@trustwallet/connect-eip155-core'
@@ -10,8 +10,8 @@ import {
 	NoWalletConnectedError,
 	useConnection,
 } from '@trustwallet/connect-headless'
-import { createEIP155Transport } from '../transport'
-import { UseWriteContractAndWaitOptions, WriteContractRequest, WriteContractRequestFiltered } from '../types'
+import { createEIP155Transport } from '../transport.js'
+import type { UseWriteContractAndWaitOptions, WriteContractRequest, WriteContractRequestFiltered } from '../types.js'
 
 export function useWriteContract(options: UseWriteContractAndWaitOptions = {}) {
 	const { connection } = useConnection({ namespaceId: EIP155_SCOPE.ID })

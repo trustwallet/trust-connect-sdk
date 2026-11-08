@@ -1,8 +1,8 @@
-import { NamespaceEngine } from '../../02-namespace/engine'
-import { ServiceBase } from '../../03-services/base'
-import { WalletAdapterBase } from '../../05-wallet/base'
-import { NamespaceId } from '../caip'
-import { NamespaceConnection, NamespaceSpecs, Scope } from '../namespace'
+import type { NamespaceEngine } from '../../02-namespace/engine.js'
+import type { ServiceBase } from '../../03-services/base.js'
+import type { WalletAdapterBase } from '../../05-wallet/base.js'
+import type { NamespaceId } from '../caip/index.js'
+import type { NamespaceConnection, NamespaceSpecs, Scope } from '../namespace/index.js'
 
 export interface TrustConnectOptions {
 	namespaces: NamespaceConstructor[]

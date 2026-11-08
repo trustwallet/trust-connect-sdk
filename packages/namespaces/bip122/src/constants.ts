@@ -1,4 +1,4 @@
-import { Scope } from '@trustwallet/connect-core'
+import type { Scope } from '@trustwallet/connect-core'
 
 export const BIP122_SCOPE = {
 	ID: 'bip122',

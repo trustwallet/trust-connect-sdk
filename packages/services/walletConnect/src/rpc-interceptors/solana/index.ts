@@ -4,9 +4,9 @@
  * Based on: https://docs.walletconnect.network/wallet-sdk/chain-support/solana
  */
 
-import type { SignClientInstance } from '../../types'
+import type { SignClientInstance } from '../../types.js'
 import type { SessionTypes } from '@walletconnect/types'
-import type { WalletConnectSolanaRequest, WalletConnectSolanaResponse, Base58String } from '../../rpc-types'
+import type { WalletConnectSolanaRequest, WalletConnectSolanaResponse, Base58String } from '../../rpc-types/index.js'
 import type {
 	SignMessageParams,
 	SignTransactionParams,

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, type ComponentType } from 'react'
 import type { ExplorerWallet } from '@trustwallet/connect-walletconnect'
 import { useWalletConnect, useWalletConnectExplorer } from '@trustwallet/connect-walletconnect/react'
-import { useTrustModal } from '../../context/TrustModalContext'
+import { useTrustModal } from '../../context/TrustModalContext.js'
 import { useConnect } from '@trustwallet/connect-headless'
 
 interface MobileWalletsViewLogicProps {

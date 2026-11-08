@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from 'react'
 import { TrustConnect, type TrustConnectOptions } from '@trustwallet/connect-core'
-import { ReactContextError } from './errors'
+import { ReactContextError } from './errors.js'
 
 type TrustConnectContextValue = {
 	client: TrustConnect

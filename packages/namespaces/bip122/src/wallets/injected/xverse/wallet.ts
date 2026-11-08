@@ -1,20 +1,20 @@
 import {
-	ChainReference,
-	ConnectedChain,
-	NamespaceId,
+	type ChainReference,
+	type ConnectedChain,
+	type NamespaceId,
 	WalletAdapterBase,
 	UnsupportedMethodError,
 } from '@trustwallet/connect-core'
-import {
+import type {
 	BIP122Address,
 	BIP122Provider,
 	BIP122RequestArguments,
 	BIP122RequestParams,
 	BIP122Response,
 } from '@trustwallet/connect-bip122-types'
-import type { XverseAddress, XverseWalletAPI } from './types'
+import type { XverseAddress, XverseWalletAPI } from './types.js'
 import { hexToBytes, bytesToString, base64ToBytes } from '@trustwallet/connect-utils/encoding'
-import { BIP122_SCOPE } from '../../../constants'
+import { BIP122_SCOPE } from '../../../constants.js'
 
 export class XverseWallet extends WalletAdapterBase<'namespace', BIP122Address, BIP122Provider> {
 	public id = 'xverse'

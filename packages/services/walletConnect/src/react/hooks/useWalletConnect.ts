@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useSyncExternalStore } from 'react'
-import { useWalletConnectService } from './useWalletConnectService'
+import { useWalletConnectService } from './useWalletConnectService.js'
 import type { CaipWallet } from '@trustwallet/connect-core'
-import type { ExplorerWallet } from '../../explorer-api'
+import type { ExplorerWallet } from '../../explorer-api/index.js'
 import { useConnect } from '@trustwallet/connect-headless'
 import {
 	WalletConnectClientNotAvailableError,
@@ -9,7 +9,7 @@ import {
 	WalletConnectServiceNotAvailableError,
 	LinkNotReadyError,
 	MissingMobileDeepLinkError,
-} from '../../errors'
+} from '../../errors/index.js'
 
 /**
  * Hook to get the WalletConnect URI and generate it

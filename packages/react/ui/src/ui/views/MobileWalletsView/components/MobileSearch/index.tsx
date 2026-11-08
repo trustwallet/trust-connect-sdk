@@ -1,8 +1,8 @@
 import { useCopyToClipboard } from '@trustwallet/connect-ui-logic'
-import { SearchBar } from '../../../../inputs/SearchBar'
+import { SearchBar } from '../../../../inputs/SearchBar/index.js'
 import styles from './styles.module.css'
-import { CheckIcon } from '../../../../icons/CheckIcon'
-import { CopyIcon } from '../../../../icons/CopyIcon'
+import { CheckIcon } from '../../../../icons/CheckIcon.js'
+import { CopyIcon } from '../../../../icons/CopyIcon.js'
 
 interface MobileSearchProps {
 	searchQuery: string

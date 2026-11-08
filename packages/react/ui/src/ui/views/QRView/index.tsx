@@ -1,11 +1,11 @@
 import { QRViewLogic } from '@trustwallet/connect-ui-logic/walletConnect'
-import { QRWrapper } from './components/QRWrapper'
-import { QRPlaceholder } from './components/QRPlaceholder'
-import { QRActions } from './components/QRActions'
-import { QRButton } from './components/QRButton'
-import { QRError } from './components/QRError'
+import { QRWrapper } from './components/QRWrapper/index.js'
+import { QRPlaceholder } from './components/QRPlaceholder/index.js'
+import { QRActions } from './components/QRActions/index.js'
+import { QRButton } from './components/QRButton/index.js'
+import { QRError } from './components/QRError/index.js'
 import { Cuer } from 'cuer'
-import { Spinner } from '../../icons/Spinner'
+import { Spinner } from '../../icons/Spinner.js'
 
 export function QRView() {
 	return (

@@ -1,3 +1,3 @@
-export * from './encoding'
-export * from './browser/detectMobile'
-export * from './constants/trust'
+export * from './encoding/index.js'
+export * from './browser/detectMobile.js'
+export * from './constants/trust.js'

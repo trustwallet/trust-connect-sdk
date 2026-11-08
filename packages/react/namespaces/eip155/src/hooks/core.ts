@@ -11,8 +11,8 @@ import {
 	useConnection,
 	useTrustConnectContext,
 } from '@trustwallet/connect-headless'
-import { createEIP155Transport } from '../transport'
-import { UseEIP155MutationOptions, UseEIP155QueryOptions } from '../types'
+import { createEIP155Transport } from '../transport.js'
+import type { UseEIP155MutationOptions, UseEIP155QueryOptions } from '../types.js'
 
 export function eip155QueryKey<TAction extends (client: never, ...args: never[]) => Promise<unknown>>(
 	chain: Chain,

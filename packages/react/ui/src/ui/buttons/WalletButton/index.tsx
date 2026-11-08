@@ -1,7 +1,7 @@
-import { type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import type { KeyboardEvent as ReactKeyboardEvent } from 'react'
 import styles from './styles.module.css'
-import { CheckIcon } from '../../icons/CheckIcon'
-import { Spinner } from '../../icons/Spinner'
+import { CheckIcon } from '../../icons/CheckIcon.js'
+import { Spinner } from '../../icons/Spinner.js'
 
 type WalletButtonProps = {
 	name: string

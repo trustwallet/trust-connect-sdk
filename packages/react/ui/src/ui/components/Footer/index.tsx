@@ -1,7 +1,7 @@
 import { FooterLogic } from '@trustwallet/connect-ui-logic'
-import { FooterWrapper } from './components/FooterWrapper'
-import { FooterDescription } from './components/FooterDescription'
-import { FooterLink } from './components/FooterLink'
+import { FooterWrapper } from './components/FooterWrapper/index.js'
+import { FooterDescription } from './components/FooterDescription/index.js'
+import { FooterLink } from './components/FooterLink/index.js'
 
 export function Footer() {
 	return (

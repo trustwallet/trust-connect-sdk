@@ -2,9 +2,9 @@ import { useEffect, useMemo } from 'react'
 import { WALLETCONNECT_WALLET } from '@trustwallet/connect-walletconnect'
 import { useWalletConnect } from '@trustwallet/connect-walletconnect/react'
 import { useWalletIds } from '@trustwallet/connect-headless'
-import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard.js'
 import type { ComponentType } from 'react'
-import { useTrustModal } from '../../context/TrustModalContext'
+import { useTrustModal } from '../../context/TrustModalContext.js'
 
 interface QRViewLogicProps {
 	components: {

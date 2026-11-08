@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react'
 import type { Connections } from '@trustwallet/connect-core'
-import { useTrustConnectContext } from '../context'
+import { useTrustConnectContext } from '../context.js'
 
 /**
  * Get all active connections from TrustConnect.

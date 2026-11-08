@@ -1,8 +1,8 @@
-import type { BIP122ChainId } from './chain'
-import type { GetAccountsMethod, GetAccountsParams, GetAccountsResponse } from './methods/getAccounts'
-import type { SignMessageMethod, SignMessageParams, SignMessageResponse } from './methods/signMessage'
-import type { SendTransferMethod, SendTransferParams, SendTransferResponse } from './methods/sendTransfer'
-import type { SignPsbtMethod, SignPsbtParams, SignPsbtResponse } from './methods/signPsbt'
+import type { BIP122ChainId } from './chain.js'
+import type { GetAccountsMethod, GetAccountsParams, GetAccountsResponse } from './methods/getAccounts/index.js'
+import type { SignMessageMethod, SignMessageParams, SignMessageResponse } from './methods/signMessage/index.js'
+import type { SendTransferMethod, SendTransferParams, SendTransferResponse } from './methods/sendTransfer/index.js'
+import type { SignPsbtMethod, SignPsbtParams, SignPsbtResponse } from './methods/signPsbt/index.js'
 
 /**
  * BIP122Bitcoin provider request interface.

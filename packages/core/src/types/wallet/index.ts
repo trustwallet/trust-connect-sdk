@@ -1,6 +1,6 @@
-import { WalletAdapterBase } from '../../05-wallet/base'
-import { NamespaceId } from '../caip'
-import { NamespaceSpecs } from '../namespace'
+import type { WalletAdapterBase } from '../../05-wallet/base.js'
+import type { NamespaceId } from '../caip/index.js'
+import type { NamespaceSpecs } from '../namespace/index.js'
 
 /**
  * Represents a multi-chain wallet that can support multiple blockchains.

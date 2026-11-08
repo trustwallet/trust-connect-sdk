@@ -1,20 +1,20 @@
 import { useMutation } from '@tanstack/react-query'
 import { buildChainId, useTrustConnectContext } from '@trustwallet/connect-headless'
-import { SOLANA_SCOPE, SolanaChainId } from '@trustwallet/connect-solana-core'
+import { SOLANA_SCOPE, type SolanaChainId } from '@trustwallet/connect-solana-core'
 import {
 	NoWalletConnectedError,
 	WalletNotFoundInConnectionError,
 	AccountNotFoundError,
 	InvalidResponseError,
 } from '@trustwallet/connect-headless'
-import {
+import type {
 	SignMessageParams,
 	SignMessageResult,
 	SignAndSendTransactionParams,
 	SignAndSendTransactionResult,
 	UseSignMessageOptions,
 	UseSendTransactionOptions,
-} from './types'
+} from './types.js'
 
 export function useSignMessage(options: UseSignMessageOptions = {}) {
 	const { client } = useTrustConnectContext()

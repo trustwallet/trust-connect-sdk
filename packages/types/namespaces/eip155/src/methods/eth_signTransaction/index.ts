@@ -1,5 +1,5 @@
-import type { Hex } from '../../utils/hex'
-import type { EIP155Address } from '../../address'
+import type { Hex } from '../../utils/hex.js'
+import type { EIP155Address } from '../../address.js'
 
 export type EthSignTransactionMethod = 'eth_signTransaction'
 export type EthSignTransactionParams = [

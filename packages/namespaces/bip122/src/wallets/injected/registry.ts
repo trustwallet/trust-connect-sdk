@@ -1,9 +1,9 @@
-import { ChainReference, RegistryBase, WalletAdapterBase } from '@trustwallet/connect-core'
-import { UnisatWalletAPI } from './unisat/types'
-import { XverseWalletAPI } from './xverse/types'
-import { UnisatWallet } from './unisat/wallet'
-import { XverseWallet } from './xverse/wallet'
-import { OKXWalletAPI } from './okx/types'
+import { type ChainReference, RegistryBase, type WalletAdapterBase } from '@trustwallet/connect-core'
+import type { UnisatWalletAPI } from './unisat/types.js'
+import type { XverseWalletAPI } from './xverse/types.js'
+import { UnisatWallet } from './unisat/wallet.js'
+import { XverseWallet } from './xverse/wallet.js'
+import type { OKXWalletAPI } from './okx/types.js'
 
 export class InjectedRegistry extends RegistryBase {
 	protected wallets: WalletAdapterBase[] = []
