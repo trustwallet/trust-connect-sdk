@@ -46,7 +46,14 @@ export abstract class NamespaceBase {
 		this.events.emit('connection', connection)
 	}
 	protected addWallets(wallets: WalletAdapterBase[]) {
-		this.wallets = [...this.wallets, ...wallets]
+		const byId = new Map<string, WalletAdapterBase>()
+		for (const wallet of this.wallets) {
+			byId.set(wallet.id, wallet)
+		}
+		for (const wallet of wallets) {
+			byId.set(wallet.id, wallet)
+		}
+		this.wallets = [...byId.values()]
 		this.events.emit('wallets', this.wallets)
 	}
 
