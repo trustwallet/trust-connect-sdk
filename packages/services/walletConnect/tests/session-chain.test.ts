@@ -143,6 +143,40 @@ describe('WalletConnect session events', () => {
 		expect(bip122.getConnection().address).toBe('bc1qnew')
 	})
 
+	it('strips a CAIP-10 account from accountsChanged before the hooks and provider read it', async () => {
+		const { client, eip155, bip122, wallet } = await connectWallet()
+
+		client.emit('session_event', {
+			topic: 'topic-1',
+			params: {
+				chainId: 'eip155:1',
+				event: { name: 'accountsChanged', data: ['eip155:1:0xdef'] },
+			},
+		})
+
+		const provider = await wallet.getProvider()
+		const accounts = await provider.request<string[]>({
+			chainId: 'eip155:1',
+			request: { method: 'eth_accounts' },
+		})
+
+		expect(eip155.getConnection().address).toBe('0xdef')
+		expect(accounts).toEqual(['0xdef'])
+
+		client.emit('session_event', {
+			topic: 'topic-1',
+			params: {
+				chainId: BIP122_CHAIN,
+				event: {
+					name: 'accountsChanged',
+					data: [{ address: `${BIP122_CHAIN}:bc1qcaip`, addressType: 'p2wpkh' }],
+				},
+			},
+		})
+
+		expect(bip122.getConnection().address).toBe('bc1qcaip')
+	})
+
 	it('writes the parsed chain onto the namespace connection and later requests', async () => {
 		const { client, eip155, wallet } = await connectWallet()
 
