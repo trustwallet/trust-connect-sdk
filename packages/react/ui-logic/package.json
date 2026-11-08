@@ -23,7 +23,10 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "tsc --watch",
-		"clean": "rm -rf dist"
+		"clean": "rm -rf dist",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage"
 	},
 	"keywords": [
 		"trust",
@@ -50,8 +53,10 @@
 		}
 	},
 	"devDependencies": {
+		"@testing-library/react": "16.3.3",
 		"@types/react": "19.2.7",
 		"@types/react-dom": "19.2.3",
+		"jsdom": "26.1.0",
 		"react": "19.2.3",
 		"react-dom": "19.2.3"
 	}

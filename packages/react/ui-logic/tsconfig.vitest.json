@@ -1,0 +1,17 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"jsx": "react-jsx",
+		"noEmit": true,
+		"paths": {
+			"@trustwallet/connect-core": ["../../core/src/index.ts"],
+			"@trustwallet/connect-headless": ["../headless/src/index.ts"],
+			"@trustwallet/connect-utils": ["../../utils/src/index.ts"],
+			"@trustwallet/connect-eip155-types": ["../../types/namespaces/eip155/src/index.ts"],
+			"@trustwallet/connect-solana-types": ["../../types/namespaces/solana/src/index.ts"],
+			"@trustwallet/connect-bip122-types": ["../../types/namespaces/bip122/src/index.ts"]
+		}
+	},
+	"include": ["tests/**/*.ts", "tests/**/*.tsx"]
+}
