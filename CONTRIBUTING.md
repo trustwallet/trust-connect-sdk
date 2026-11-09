@@ -4,7 +4,7 @@ Thanks for taking the time to contribute!
 
 ## Prerequisites
 
-- Node.js 18+ (recommended)
+- Node.js 20+ (Vitest requires 20, 22, or 24)
 - pnpm (see `package.json` for the pinned version)
 
 ## Getting Started

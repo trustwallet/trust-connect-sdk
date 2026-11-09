@@ -25,7 +25,7 @@
 		"test:watch": "pnpm --filter \"./packages/**\" --parallel run test:watch",
 		"test:coverage": "pnpm --filter \"./packages/**\" run test:coverage",
 		"format": "pnpm dlx @biomejs/biome format packages --write",
-		"lint": "pnpm dlx @biomejs/biome lint packages",
+		"lint": "pnpm exec biome lint packages",
 		"check": "pnpm dlx @biomejs/biome check packages",
 		"bundle:analyze": "pnpm build && node scripts/analyze-bundle.mjs",
 		"changeset": "changeset",
