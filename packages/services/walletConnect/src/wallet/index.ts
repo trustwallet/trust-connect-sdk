@@ -5,6 +5,7 @@ import {
 	CaipProvider,
 	CaipSessionResponse,
 	ChainId,
+	extractAddress,
 	extractNamespace,
 	NoActiveSessionError,
 } from '@trustwallet/connect-core'
@@ -373,27 +374,32 @@ export class WalletConnectWalletAdapter extends WalletAdapterBase<'caip'> {
 
 			let handled = false
 
-			// Handle ACCOUNTS_CHANGED event
+			// Handle ACCOUNTS_CHANGED event. The address has to already be in the
+			// approved session. A session_event must not switch the dapp onto an
+			// account the controller never granted.
 			if (event.params.event.name === namespace.EVENTS.ACCOUNTS_CHANGED) {
 				handled = true
 				const updates = config.parseAccountsChangedEvent(event.params.event.data)
-				this.updateAccount(namespaceId, updates)
+				const candidate = config.connectionFromAccount(updates).address
+				if (this.sessionAllowsAccount(namespaceId, event.params.chainId, candidate)) {
+					this.updateAccount(namespaceId, updates)
 
-				const published = config.connectionFromAccount(this.getAccount(namespaceId))
-				this.emitCaipSessionEvent({
-					chainId: (published.chainId || event.params.chainId) as ChainId,
-					event: {
-						name: namespace.EVENTS.ACCOUNTS_CHANGED,
-						data: published.address ? [published.address] : [],
-					},
-				})
+					const published = config.connectionFromAccount(this.getAccount(namespaceId))
+					this.emitCaipSessionEvent({
+						chainId: (published.chainId || event.params.chainId) as ChainId,
+						event: {
+							name: namespace.EVENTS.ACCOUNTS_CHANGED,
+							data: published.address ? [published.address] : [],
+						},
+					})
+				}
 			}
 
-			// Handle CHAIN_CHANGED event
+			// Handle CHAIN_CHANGED event. Same rule: the chain has to be one the session approved.
 			if (event.params.event.name === namespace.EVENTS.CHAIN_CHANGED) {
 				handled = true
 				const updates = config.parseChainChangedEvent(event.params.event.data)
-				if (updates.chainId) {
+				if (updates.chainId && this.sessionAllowsChain(namespaceId, updates.chainId)) {
 					this.updateAccount(namespaceId, updates)
 					const published = config.connectionFromAccount(this.getAccount(namespaceId))
 					if (published.chainId) {
@@ -438,6 +444,30 @@ export class WalletConnectWalletAdapter extends WalletAdapterBase<'caip'> {
 	protected stopListeners() {
 		this.unsubscribers.forEach((unsubscriber) => unsubscriber())
 		this.unsubscribers = []
+	}
+
+	/**
+	 * An accountsChanged payload is only applied when that address is already
+	 * on the session for this chain. Adding an account is a session update,
+	 * and only the controller may do that.
+	 */
+	private sessionAllowsAccount(namespaceId: WalletNamespaceId, chainId: string, address: string | undefined): boolean {
+		if (!address || !this.currentSession) return false
+		const accounts = this.currentSession.namespaces[namespaceId]?.accounts ?? []
+		const chainPrefix = `${chainId}:`
+		return accounts.some((account) => {
+			if (namespaceId === EIP155.ID) {
+				if (!account.toLowerCase().startsWith(chainPrefix.toLowerCase())) return false
+				return extractAddress(account).toLowerCase() === address.toLowerCase()
+			}
+			if (!account.startsWith(chainPrefix)) return false
+			return extractAddress(account) === address
+		})
+	}
+
+	private sessionAllowsChain(namespaceId: WalletNamespaceId, chainId: string): boolean {
+		const chains = this.currentSession?.namespaces[namespaceId]?.chains ?? []
+		return chains.includes(chainId)
 	}
 
 	onConnect(namespaces: CaipSessionResponse['namespaces']) {
