@@ -18,6 +18,11 @@ type InterceptorFunction = (context: any, args: any) => Promise<any>
 /**
  * Configuration type for a namespace
  */
+type PublishedAccount = {
+	address?: string
+	chainId?: ChainId
+}
+
 type NamespaceConfigItem<N extends NamespaceId> = {
 	parseAccount: (account: string) => string
 	parseChain: (chain: string | ChainId) => ChainId
@@ -29,6 +34,7 @@ type NamespaceConfigItem<N extends NamespaceId> = {
 	) => EIP155InterceptorContext | SolanaInterceptorContext | BIP122InterceptorContext
 	parseAccountsChangedEvent: (data: unknown) => Partial<NamespaceAccountData[N]>
 	parseChainChangedEvent: (data: unknown) => Partial<NamespaceAccountData[N]>
+	connectionFromAccount: (account: Partial<NamespaceAccountData[N]>) => PublishedAccount
 }
 
 type NamespaceConfigMap = {
@@ -68,13 +74,21 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 
 		parseAccountsChangedEvent: (data: unknown) => {
 			const accounts = data as string[]
-			return { address: accounts[0] }
+			const raw = accounts?.[0]
+			return { address: typeof raw === 'string' ? extractAddress(raw) : undefined }
 		},
 
 		parseChainChangedEvent: (data: unknown) => {
-			const numRef = Number(data)
+			const raw = typeof data === 'string' && data.includes(':') ? data.slice(data.indexOf(':') + 1) : data
+			const numRef = Number(raw)
+			if (!Number.isFinite(numRef)) return {}
 			return { chainId: buildChainId({ namespace: EIP155.ID, reference: numRef.toString() }) }
 		},
+
+		connectionFromAccount: (account) => ({
+			address: account.address,
+			chainId: account.chainId,
+		}),
 	},
 
 	[SOLANA.ID]: {
@@ -100,12 +114,18 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 
 		parseAccountsChangedEvent: (data: unknown) => {
 			const accounts = data as string[]
-			return { pubkey: accounts[0] }
+			const raw = accounts?.[0]
+			return { pubkey: typeof raw === 'string' ? extractAddress(raw) : undefined }
 		},
 
 		parseChainChangedEvent: (data: unknown) => {
 			return { chainId: data as ChainId }
 		},
+
+		connectionFromAccount: (account) => ({
+			address: account.pubkey,
+			chainId: account.chainId,
+		}),
 	},
 
 	[BIP122.ID]: {
@@ -144,7 +164,7 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 			const accountData = accounts[0]
 
 			return {
-				address: accountData?.address,
+				address: accountData?.address ? extractAddress(accountData.address) : undefined,
 				publicKey: accountData?.publicKey ? hexToBytes(accountData.publicKey) : undefined,
 				addressType: accountData?.addressType,
 			}
@@ -153,5 +173,10 @@ export const NAMESPACE_CONFIG: NamespaceConfigMap = {
 		parseChainChangedEvent: (data: unknown) => {
 			return { chainId: data as ChainId }
 		},
+
+		connectionFromAccount: (account) => ({
+			address: account.address,
+			chainId: account.chainId,
+		}),
 	},
 }
