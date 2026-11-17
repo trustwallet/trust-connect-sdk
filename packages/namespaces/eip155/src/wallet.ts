@@ -76,15 +76,27 @@ export class EIP155Wallet extends WalletAdapterBase {
 		this.emitAddress(undefined)
 	}
 
+	private readonly onAccountsChanged = (accounts: EIP155Address[]) => {
+		this.handleAccounts(accounts)
+	}
+
+	private readonly onChainChanged = (chainId: string | number) => {
+		this.handleChainId(chainId)
+	}
+
+	private readonly onDisconnect = () => {
+		this.handleDisconnect()
+	}
+
 	startListeners() {
-		this.eip1193Provider.on(EVENTS.ACCOUNTS_CHANGED, this.handleAccounts.bind(this))
-		this.eip1193Provider.on(EVENTS.CHAIN_CHANGED, this.handleChainId.bind(this))
-		this.eip1193Provider.on(EVENTS.DISCONNECT, this.handleDisconnect.bind(this))
+		this.eip1193Provider.on(EVENTS.ACCOUNTS_CHANGED, this.onAccountsChanged)
+		this.eip1193Provider.on(EVENTS.CHAIN_CHANGED, this.onChainChanged)
+		this.eip1193Provider.on(EVENTS.DISCONNECT, this.onDisconnect)
 	}
 	stopListeners() {
-		this.eip1193Provider.removeListener(EVENTS.ACCOUNTS_CHANGED, this.handleAccounts.bind(this))
-		this.eip1193Provider.removeListener(EVENTS.CHAIN_CHANGED, this.handleChainId.bind(this))
-		this.eip1193Provider.removeListener(EVENTS.DISCONNECT, this.handleDisconnect.bind(this))
+		this.eip1193Provider.removeListener(EVENTS.ACCOUNTS_CHANGED, this.onAccountsChanged)
+		this.eip1193Provider.removeListener(EVENTS.CHAIN_CHANGED, this.onChainChanged)
+		this.eip1193Provider.removeListener(EVENTS.DISCONNECT, this.onDisconnect)
 	}
 
 	async getProvider(): Promise<EIP155Provider> {

@@ -17,11 +17,15 @@ export class EIP155Registry extends RegistryBase {
 		this.setWallets([...this.wallets, newWallet])
 	}
 
+	private readonly onAnnouncementListener: EventListener = (event) => {
+		this.onAnnouncement(event as unknown as EIP6963AnnounceProviderEvent)
+	}
+
 	protected start(): Promise<void> | void {
-		window.addEventListener('eip6963:announceProvider', this.onAnnouncement.bind(this))
+		window.addEventListener('eip6963:announceProvider', this.onAnnouncementListener)
 		window.dispatchEvent(new Event('eip6963:requestProvider'))
 	}
 	protected stopListeners(): void {
-		window.removeEventListener('eip6963:announceProvider', this.onAnnouncement.bind(this))
+		window.removeEventListener('eip6963:announceProvider', this.onAnnouncementListener)
 	}
 }
