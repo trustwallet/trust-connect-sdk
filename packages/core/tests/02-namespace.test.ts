@@ -886,6 +886,28 @@ describe('NamespaceEngine - 02-namespace', () => {
 			expect(walletsCallback).toHaveBeenCalledWith(expect.arrayContaining([newWallet]))
 		})
 
+		it('should keep a single entry per wallet id when a registry re-emits its snapshot', () => {
+			const wallet1 = createMockNamespaceWallet('wallet1', 'eip155' as NamespaceId)
+			const wallet2 = createMockNamespaceWallet('wallet2', 'eip155' as NamespaceId)
+			const registryB = new MockRegistry()
+			const walletB = createMockNamespaceWallet('walletB', 'eip155' as NamespaceId)
+
+			mockRegistry.setWallets([wallet1])
+			registryB.setWallets([walletB])
+			namespaceEngine = new NamespaceEngine({
+				id: 'eip155' as NamespaceId,
+				name: 'Ethereum',
+				icon: 'data:image/svg+xml;base64,test',
+				registries: [mockRegistry, registryB],
+				rpcUrls: undefined,
+			})
+
+			mockRegistry.triggerWalletUpdate([wallet1, wallet2])
+			mockRegistry.triggerWalletUpdate([wallet1, wallet2])
+
+			expect(namespaceEngine.getWallets().map((wallet) => wallet.id)).toEqual(['wallet1', 'walletB', 'wallet2'])
+		})
+
 		it('should not remove existing wallets when adding new ones', () => {
 			const wallet1 = createMockNamespaceWallet('wallet1', 'eip155' as NamespaceId)
 			const wallet2 = createMockNamespaceWallet('wallet2', 'eip155' as NamespaceId)
