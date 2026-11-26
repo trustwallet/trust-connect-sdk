@@ -1057,6 +1057,52 @@ describe('CaipController - 01-caip-controller', () => {
 			})
 		})
 
+		it('should persist the session address on the namespace connection', () => {
+			const current: NamespaceConnection = {
+				status: 'connected',
+				wallet: mockWallet,
+				address: '0x123',
+				chain: { namespace: 'eip155', reference: '1' },
+			}
+			vi.mocked(mockNamespace.getConnection).mockReturnValue(current)
+
+			caipController.onSessionEvent({
+				chainId: 'eip155:1',
+				event: {
+					name: 'accountsChanged',
+					data: ['0x456'],
+				},
+			})
+
+			expect(mockNamespace.setConnection).toHaveBeenCalledWith({
+				...current,
+				address: '0x456',
+			})
+		})
+
+		it('should persist the session chain on the namespace connection', () => {
+			const current: NamespaceConnection = {
+				status: 'connected',
+				wallet: mockWallet,
+				address: '0x123',
+				chain: { namespace: 'eip155', reference: '1' },
+			}
+			vi.mocked(mockNamespace.getConnection).mockReturnValue(current)
+
+			caipController.onSessionEvent({
+				chainId: 'eip155:1',
+				event: {
+					name: 'chainChanged',
+					data: 'eip155:137',
+				},
+			})
+
+			expect(mockNamespace.setConnection).toHaveBeenCalledWith({
+				...current,
+				chain: { namespace: 'eip155', reference: '137' },
+			})
+		})
+
 		it('should ignore unrecognized event types', () => {
 			vi.mocked(mockNamespace.getConnection).mockReturnValue({
 				status: 'connected',
